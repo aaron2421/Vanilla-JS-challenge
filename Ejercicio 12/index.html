@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Ejercicio 12</title>
+    <script type="text/javascript" src="https://www.cornify.com/js/cornify.js"></script>
+</head>
+
+<body>
+    <div style="text-align: center; padding-top: 12%; font-family: 'Segoe UI';">
+        <h1>Intenta adivinar la palabra!!!</h1>
+        <h3>Da un click en la pantalla y comienza a escribir</h3>
+    </div>
+    <script>
+        const pressed = [];
+        const secretCode = 'chocolate';
+        var cont = 0;
+
+        window.addEventListener('keyup', (e) => {
+            cont++;
+            if (cont === 10) {
+                alert("psst, psst, (la palabra es chocolate)");
+            }
+            console.log(e.key);
+            pressed.push(e.key);
+            pressed.splice(-secretCode.length - 1, pressed.length - secretCode.length);
+            if (pressed.join('').includes(secretCode)) {
+                console.log('Felicidades!');
+                alert("Has ganado!!!");
+                cornify_add();
+            }
+            console.log(pressed);
+        });
+    </script>
+</body>
+
+</html>
